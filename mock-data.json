@@ -1,0 +1,201 @@
+[{
+  "createdAt": "2022-06-14T09:45:20Z",
+  "company": "Shuffledrive",
+  "position": "back-end",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "part-time",
+  "jobLocation": "Kyiv"
+}, {
+  "createdAt": "2022-11-22T01:49:48Z",
+  "company": "Thoughtstorm",
+  "position": "html-coder",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "remote",
+  "jobLocation": "remote"
+}, {
+  "createdAt": "2022-10-26T17:36:46Z",
+  "company": "Ainyx",
+  "position": "front-end",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "part-time",
+  "jobLocation": "remote"
+}, {
+  "createdAt": "2022-11-03T02:01:14Z",
+  "company": "Skyble",
+  "position": "front-end",
+  "status": "pending",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "full-time",
+  "jobLocation": "Kharkiv"
+}, {
+  "createdAt": "2022-11-05T09:49:37Z",
+  "company": "Linkbuzz",
+  "position": "react developer",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "internship",
+  "jobLocation": "Lviv"
+}, {
+  "createdAt": "2022-09-25T15:22:00Z",
+  "company": "Flipstorm",
+  "position": "fullstack developer",
+  "status": "pending",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "part-time",
+  "jobLocation": "Kharkiv"
+}, {
+  "createdAt": "2022-06-10T18:56:35Z",
+  "company": "Skinte",
+  "position": "back-end",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "internship",
+  "jobLocation": "remote"
+}, {
+  "createdAt": "2022-09-08T01:23:57Z",
+  "company": "Oyoba",
+  "position": "fullstack developer",
+  "status": "pending",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "part-time",
+  "jobLocation": "Lviv"
+}, {
+  "createdAt": "2022-06-26T20:20:41Z",
+  "company": "Kwinu",
+  "position": "node-js developer",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "full-time",
+  "jobLocation": "Dnipro"
+}, {
+  "createdAt": "2022-08-26T09:59:39Z",
+  "company": "Skippad",
+  "position": "front-end",
+  "status": "pending",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "internship",
+  "jobLocation": "Lviv"
+}, {
+  "createdAt": "2022-08-09T10:53:19Z",
+  "company": "Oba",
+  "position": "fullstack developer",
+  "status": "interview",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "part-time",
+  "jobLocation": "Lviv"
+}, {
+  "createdAt": "2022-07-04T02:25:09Z",
+  "company": "Voonyx",
+  "position": "react developer",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "remote",
+  "jobLocation": "Kyiv"
+}, {
+  "createdAt": "2022-07-26T18:37:04Z",
+  "company": "Gigaclub",
+  "position": "html-coder",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "remote",
+  "jobLocation": "Lviv"
+}, {
+  "createdAt": "2022-07-25T19:42:36Z",
+  "company": "Camimbo",
+  "position": "node-js developer",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "internship",
+  "jobLocation": "remote"
+}, {
+  "createdAt": "2022-08-09T12:47:51Z",
+  "company": "Browseblab",
+  "position": "fullstack developer",
+  "status": "interview",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "part-time",
+  "jobLocation": "Dnipro"
+}, {
+  "createdAt": "2022-11-28T11:54:06Z",
+  "company": "Meembee",
+  "position": "fullstack developer",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "full-time",
+  "jobLocation": "remote"
+}, {
+  "createdAt": "2022-10-24T13:56:53Z",
+  "company": "Eidel",
+  "position": "react developer",
+  "status": "pending",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "remote",
+  "jobLocation": "Dnipro"
+}, {
+  "createdAt": "2022-08-03T14:25:47Z",
+  "company": "Eabox",
+  "position": "html-coder",
+  "status": "interview",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "full-time",
+  "jobLocation": "Kyiv"
+}, {
+  "createdAt": "2022-07-27T17:47:12Z",
+  "company": "Janyx",
+  "position": "node-js developer",
+  "status": "interview",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "remote",
+  "jobLocation": "Lviv"
+}, {
+  "createdAt": "2022-07-03T18:49:12Z",
+  "company": "Divape",
+  "position": "front-end",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "internship",
+  "jobLocation": "Kharkiv"
+}, {
+  "createdAt": "2022-07-05T06:03:35Z",
+  "company": "Divanoodle",
+  "position": "html-coder",
+  "status": "declined",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "part-time",
+  "jobLocation": "Kharkiv"
+}, {
+  "createdAt": "2022-10-04T21:20:41Z",
+  "company": "Babbleblab",
+  "position": "html-coder",
+  "status": "interview",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "full-time",
+  "jobLocation": "Lviv"
+}, {
+  "createdAt": "2022-09-04T17:29:49Z",
+  "company": "Avavee",
+  "position": "html-coder",
+  "status": "interview",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "part-time",
+  "jobLocation": "Lviv"
+}, {
+  "createdAt": "2022-11-25T03:13:44Z",
+  "company": "Jabberstorm",
+  "position": "front-end",
+  "status": "pending",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "internship",
+  "jobLocation": "Lviv"
+}, {
+  "createdAt": "2022-06-29T23:23:31Z",
+  "company": "Wordtune",
+  "position": "node-js developer",
+  "status": "pending",
+  "createdBy": "6334475222d615b1fbc1b782",
+  "jobType": "internship",
+  "jobLocation": "Dnipro"
+}]
