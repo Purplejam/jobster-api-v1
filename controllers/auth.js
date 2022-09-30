@@ -17,6 +17,11 @@ const register = async (req, res) => {
   })
 }
 
+const getUser = async (req, res) => {
+  const user = await User.create({ ...req.body })
+  return user
+}
+
 
 const login = async (req, res) => {
   const { email, password } = req.body
