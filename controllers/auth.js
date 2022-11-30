@@ -17,11 +17,6 @@ const register = async (req, res) => {
   })
 }
 
-const getUser = async (req, res) => {
-  const user = await User.create({ ...req.body })
-  return user
-}
-
 
 const login = async (req, res) => {
   const { email, password } = req.body
@@ -33,11 +28,12 @@ const login = async (req, res) => {
   if (!user) {
     throw new UnauthenticatedError('Invalid Credentials')
   }
+  //compare password
   const isPasswordCorrect = await user.comparePassword(password)
   if (!isPasswordCorrect) {
     throw new UnauthenticatedError('Invalid Credentials')
   }
-  // compare password
+  
   const token = user.createJWT()
   res.status(StatusCodes.OK).json({ user: { name: user.name, token } })
 }
@@ -50,14 +46,12 @@ const updateUser = async (req, res) => {
   }
 
   const user = await User.findOne({_id: req.user.userId})
-
   user.name = name
   user.email = email
   user.lastName = lastName
   user.location = location
 
   await user.save()
-
   const token = user.createJWT()
 
   res.status(StatusCodes.CREATED).json({

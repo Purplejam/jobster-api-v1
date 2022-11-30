@@ -16,32 +16,14 @@ const getAllJobs = async (req, res) => {
       $options: 'i'
     }
   }
-
-  if (jobType && jobType !== 'all') {
-    queryObject.jobType = jobType
-  }
-
-  if (status && status !== 'all') {
-    queryObject.status = status
-  }
+  if (jobType && jobType !== 'all') {queryObject.jobType = jobType}
+  if (status && status !== 'all') {queryObject.status = status}
 
   let result = Job.find(queryObject)
-
-  if (sort === 'latest') {
-    result = result.sort('-createdAt')
-  }
-
-  if (sort === 'oldest') {
-    result = result.sort('createdAt')
-  }
-
-  if (sort === 'a-z') {
-    result = result.sort('position')
-  }
-
-  if (sort === 'z-a') {
-    result = result.sort('-position')
-  }
+  if (sort === 'latest') {result = result.sort('-createdAt')}
+  if (sort === 'oldest') {result = result.sort('createdAt')}
+  if (sort === 'a-z') {result = result.sort('position')}
+  if (sort === 'z-a') {result = result.sort('-position')}
 
   const page = req.query.page || 1
   const limit = req.query.limit || 8
@@ -51,7 +33,6 @@ const getAllJobs = async (req, res) => {
   const numOfPages = Math.ceil(totalJobs / limit)
 
   result = result.skip(skip).limit(limit)
-
   const jobs = await result
 
   res.status(StatusCodes.OK).json({jobs, numOfPages, totalJobs})

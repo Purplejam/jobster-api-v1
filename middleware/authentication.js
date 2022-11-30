@@ -10,7 +10,7 @@ const auth = async (req, res, next) => {
   }
   // take token info from header auth
   const token = authHeader.split(' ')[1]
-
+  //
   //try verify users token
   //if true put user in request (name and id)
   try {
