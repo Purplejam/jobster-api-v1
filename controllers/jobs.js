@@ -93,17 +93,22 @@ const deleteJob = async (req, res) => {
 
 
 const showStats = async (req, res) => {
+  //get array with status and totalJobs with this status
   let stats = await Job.aggregate([
       {$match: {createdBy: mongoose.Types.ObjectId(req.user.userId)}},
       {$group: {_id:'$status', count: {$sum: 1}}},
     ])
 
+  //simplify object: title: count
+  //acc = plain object
   stats = stats.reduce((acc, curr) => {
     const { _id: title, count } = curr;
     acc[title] = count;
+    console.log(acc)
     return acc;
   }, {});
 
+  //add default stats, if there is no such stats equal 0
   const defaultStats = {
     pending: stats.pending || 0,
     interview: stats.interview || 0,
