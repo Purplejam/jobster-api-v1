@@ -10,12 +10,10 @@ const getAllJobs = async (req, res) => {
   const queryObject = {
     createdBy: req.user.userId
   }
-  //add search in queryObj
   if (search && search !== 'all') queryObject.position = search
   if (status && status !== 'all') queryObject.status = status
   if (jobType && jobType !== 'all') queryObject.jobType = jobType
   
-  //make queryObj promise
   let result = Job.find(queryObject)
  
   //add sorting logic
@@ -95,25 +93,55 @@ const deleteJob = async (req, res) => {
 const showStats = async (req, res) => {
   //get array with status and totalJobs with this status
   let stats = await Job.aggregate([
-      {$match: {createdBy: mongoose.Types.ObjectId(req.user.userId)}},
-      {$group: {_id:'$status', count: {$sum: 1}}},
-    ])
+    {$match: {createdBy: mongoose.Types.ObjectId(req.user.userId)}},
+    {$group: {
+      _id: "$status",
+      totalJobs: {
+        $count: {}
+      }
+    }}
+   ])
 
-  //simplify object: title: count
-  //acc = plain object
   stats = stats.reduce((acc, curr) => {
-    const { _id: title, count } = curr;
-    acc[title] = count;
-    console.log(acc)
-    return acc;
+    const {_id: title, totalJobs} = curr
+    acc[title] = totalJobs
+    return acc
   }, {});
 
-  //add default stats, if there is no such stats equal 0
+  //add default stats, if there is no such stats – equal 0
   const defaultStats = {
     pending: stats.pending || 0,
     interview: stats.interview || 0,
     declined: stats.declined || 0,
   };
+
+  //monthly app-ns
+  //match by createdBy
+  //group by year and month and count
+
+  let testApplication = await Job.aggregate([
+      {$match: {createdBy: mongoose.Types.ObjectId(req.user.userId)}},
+      {$group: {
+        _id: {year: {$year: '$createdAt'}, month: {$month: '$createdAt'}},
+        count: {
+          $count: {}
+        }
+      }}, 
+      {$sort: {'_id.year': -1, '_id.month': -1}},
+      {$limit: 6}
+    ])
+  console.log(testApplication)
+
+  testApplication = testApplication.map((item) => {
+    const {_id: {year, month}, count} = item
+    const date = moment()
+      .month(month - 1)
+      .year(year)
+      .format('MMM Y')
+    return { date, count }
+  }).reverse()
+
+  console.log(testApplication)
 
   let monthlyApplications = await Job.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
@@ -126,6 +154,8 @@ const showStats = async (req, res) => {
     { $sort: { '_id.year': -1, '_id.month': -1 } },
     { $limit: 6 },
   ]);
+
+  
   monthlyApplications = monthlyApplications
     .map((item) => {
       const {
@@ -136,7 +166,7 @@ const showStats = async (req, res) => {
         .month(month - 1)
         .year(year)
         .format('MMM Y');
-      return { date, count };
+      return { date, count }
     })
     .reverse();
 
