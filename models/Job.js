@@ -34,6 +34,11 @@ const JobSchema = new mongoose.Schema(
       type: String,
       default: 'my city',
       required: true
+    },
+    meetingType: {
+      type: String,
+      enum: ['Zoom', 'Skype', 'Office', 'Meet'],
+      default: 'Zoom'
     }
   },
   { timestamps: true }

@@ -1,6 +1,7 @@
 require('dotenv').config();
 require('express-async-errors');
 const path = require('path');
+const cors = require('cors')
 
 //extra security packages
 const helmet = require('helmet');
@@ -21,6 +22,9 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 
 //trust proxy for heroku deployment
 app.set('trust proxy', 1);
+
+//enable ALL cors
+app.use(cors())
 
 app.use(express.static(path.resolve(__dirname, './client/build')));
 app.use(express.json());
