@@ -17,10 +17,8 @@ const register = async (req, res) => {
   })
 }
 
-
 const login = async (req, res) => {
   const { email, password } = req.body
-
   if (!email || !password) {
     throw new BadRequestError('Please provide email and password')
   }
@@ -28,23 +26,20 @@ const login = async (req, res) => {
   if (!user) {
     throw new UnauthenticatedError('Invalid Credentials')
   }
-  //compare password
   const isPasswordCorrect = await user.comparePassword(password)
   if (!isPasswordCorrect) {
     throw new UnauthenticatedError('Invalid Credentials')
   }
-  
+
   const token = user.createJWT()
   res.status(StatusCodes.OK).json({ user: { name: user.name, token } })
 }
 
 const updateUser = async (req, res) => {
   const {name, email, lastName, location} = req.body
-  console.log(req.user)
   if (!name || !email || !lastName || !location) {
     throw new BadRequestError('Please provide all required values')
   }
-
   const user = await User.findOne({_id: req.user.userId})
   user.name = name
   user.email = email
@@ -53,7 +48,6 @@ const updateUser = async (req, res) => {
 
   await user.save()
   const token = user.createJWT()
-
   res.status(StatusCodes.CREATED).json({
     user: {
       name: user.name,

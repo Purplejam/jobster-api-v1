@@ -6,27 +6,22 @@ const moment = require('moment')
 
 const getAllJobs = async (req, res) => {
   const {search, status, jobType, sort} = req.query
-  //search jobs with userId only
+  const page = Number(req.query.page) || 1
+  const limit = Number(req.query.limit) || 4
+  const skip = (page - 1) * limit
+
   const queryObject = {
     createdBy: req.user.userId
   }
   if (search && search !== 'all') queryObject.position = search
   if (status && status !== 'all') queryObject.status = status
   if (jobType && jobType !== 'all') queryObject.jobType = jobType
-  
   let result = Job.find(queryObject)
-
-  //add sorting logic
-  const page = Number(req.query.page) || 1
-  const limit = Number(req.query.limit) || 4
-  const skip = (page - 1) * limit
-
   const totalJobs = await Job.countDocuments(queryObject)
   const numOfPages = Math.ceil(totalJobs / limit)
 
   result = result.skip(skip).limit(limit)
   const jobs = await Job.find(result)
-  
   res.status(StatusCodes.OK).json({jobs, numOfPages, totalJobs})
 }
 
@@ -115,10 +110,6 @@ const showStats = async (req, res) => {
     declined: stats.declined || 0,
   }
 
-  //monthly app-ns
-  //match by createdBy
-  //group by year and month and count
-
   let monthlyApplications = await Job.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
     {
@@ -144,7 +135,6 @@ const showStats = async (req, res) => {
       return { date, count }
     })
     .reverse()
-
   res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications })
 }
 
